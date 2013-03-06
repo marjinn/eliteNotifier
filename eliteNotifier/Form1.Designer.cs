@@ -53,7 +53,6 @@
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Staples® EasyTech™ Small Business Class";
             this.notifyIcon1.Visible = true;
-            this.notifyIcon1.ShowBalloonTip(4000);
             // 
             // contextMenuStrip1
             // 
@@ -187,7 +186,6 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.ShowInTaskbar = false;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.contextMenuStrip1.ResumeLayout(false);

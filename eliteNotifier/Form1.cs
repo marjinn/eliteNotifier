@@ -45,21 +45,27 @@ namespace eliteNotifier
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        
-            base.SetVisibleCore(true);
-      
-            this.Close();
-            this.Dispose();
-        }
+       
 
+        //sets the visibility of the form to invisble so that the form is not show on launch
+        //also set are forms - showOnTaskbar property and WindowStateMinimized - are set to false .. which is not necessary
+       
         protected override void SetVisibleCore(bool value)
         {
             base.SetVisibleCore(false);
         }
+        
+        //on exit visibility is set back to visibile so as to exit the form
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
+
+            base.SetVisibleCore(true);
+            base.Dispose();
+           // this.Close();
+           // this.Dispose();
+        }
+       
         #region MouseEventsFor-exitToolStripMenuItem
 
         private void exitToolStripMenuItem_MouseEnter(object sender, EventArgs e)
