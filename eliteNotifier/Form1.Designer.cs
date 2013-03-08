@@ -41,6 +41,8 @@
             this.chatWithATechNowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.popupNotifier1 = new NotificationWindow.PopupNotifier();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,11 +180,41 @@
             this.exitToolStripMenuItem.MouseEnter += new System.EventHandler(this.exitToolStripMenuItem_MouseEnter);
             this.exitToolStripMenuItem.MouseLeave += new System.EventHandler(this.exitToolStripMenuItem_MouseLeave);
             // 
+            // popupNotifier1
+            // 
+            this.popupNotifier1.BodyColor = System.Drawing.Color.White;
+            this.popupNotifier1.ContentColor = System.Drawing.Color.Black;
+            this.popupNotifier1.ContentFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.popupNotifier1.ContentHoverColor = System.Drawing.Color.Black;
+            this.popupNotifier1.ContentPadding = new System.Windows.Forms.Padding(8);
+            this.popupNotifier1.ContentText = "Success!  Staples® EasyTech™ Small Business Class has detected and fixed a potent" +
+    "ial issue with this computer";
+            this.popupNotifier1.GradientPower = 300;
+            this.popupNotifier1.HeaderHeight = 20;
+            this.popupNotifier1.Image = global::eliteNotifier.Properties.Resources._157_GetPermission_48x48_72;
+            this.popupNotifier1.ImagePadding = new System.Windows.Forms.Padding(8);
+            this.popupNotifier1.OptionsMenu = null;
+            this.popupNotifier1.Size = new System.Drawing.Size(400, 100);
+            this.popupNotifier1.TitleColor = System.Drawing.Color.Black;
+            this.popupNotifier1.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.popupNotifier1.TitleText = "Staples® EasyTech™ Small Business Class";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(58, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 190);
+            this.Controls.Add(this.button1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -206,6 +238,9 @@
         private System.Windows.Forms.ToolStripMenuItem chatWithATechNowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+
+        private NotificationWindow.PopupNotifier popupNotifier1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

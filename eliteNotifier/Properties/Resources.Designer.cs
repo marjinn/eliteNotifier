@@ -59,5 +59,15 @@ namespace eliteNotifier.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _157_GetPermission_48x48_72 {
+            get {
+                object obj = ResourceManager.GetObject("_157_GetPermission_48x48_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

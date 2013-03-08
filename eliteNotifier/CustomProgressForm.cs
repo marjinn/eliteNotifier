@@ -25,6 +25,8 @@ namespace eliteNotifier
 
             this.ShowInTaskbar = false;
 
+           
+
         }
 
         public void UpdateProgressBar(int progressValue)

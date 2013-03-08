@@ -7,21 +7,69 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
+using NotificationWindow; 
+
 namespace eliteNotifier
 {
     public partial class Form1 : Form
     {
-        
+        private WindowsServiceMonitor MonTone; 
 
         public Form1()
         {
             InitializeComponent();
             //contextMenuStrip1.Renderer = 
             //new MyRenderer();
+
+             this.notifyIcon1.ShowBalloonTip(300);
+
+           // this.popupNotifier1.Popup();
+
+             this.MonTone = new WindowsServiceMonitor();
+
+             Thread monThread = new Thread(this.MonTone.StartMonitor);
+             monThread.Start();
+             //this.MonTone.StartMonitor();
+
+            this.MonTone.MessageRecieved += 
+                new WindowsServiceMonitor.MessageReceivedHandler(
+                    MonTone_MessageRecieved);
+                
         }
 
-       
+        private void MonTone_MessageRecieved(string message)
+        {
+            this.notifyIcon1.BalloonTipText = 
+               message.ToString() +
+               Environment.NewLine +
+               " Success! Staples® EasyTech™ Small Business Class has\n" +
+               " detected and fixed a potential issue " +
+               "with this computer.\n" +
+               Environment.NewLine;
+            this.notifyIcon1.ShowBalloonTip(1);
 
+            
+        }
+
+
+        /*
+        private void MonTone_MessageRecieved(string message)
+        {
+            this.Invoke(new WindowsServiceMonitor.MessageReceivedHandler(
+                Display_MonTone_MessageRecieved), new object[] { message });
+        }
+
+        private void Display_MonTone_MessageRecieved(string message)
+        {
+            //this.popupNotifier1.Popup();
+            this.notifyIcon1.BalloonTipText = @"                        " +
+               message.ToString() +
+               Environment.NewLine +
+               @"Success!  Staples® EasyTech™ Small Business Class has detected and fixed a potential issue with this computer";
+            this.notifyIcon1.ShowBalloonTip(5);
+        }
+
+         */
 
         private class MyRenderer : ToolStripProfessionalRenderer
         {
@@ -55,6 +103,7 @@ namespace eliteNotifier
             base.SetVisibleCore(false);
         }
         
+        
         //on exit visibility is set back to visibile so as to exit the form
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -64,6 +113,8 @@ namespace eliteNotifier
             base.Dispose();
            // this.Close();
            // this.Dispose();
+
+            MonTone.Dispose();
         }
        
         #region MouseEventsFor-exitToolStripMenuItem
@@ -353,6 +404,11 @@ namespace eliteNotifier
 
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.popupNotifier1.Popup();
         }
 
     }
