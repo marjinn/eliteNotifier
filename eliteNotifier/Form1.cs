@@ -47,6 +47,7 @@ namespace eliteNotifier
                "with this computer.\n" +
                Environment.NewLine;
             this.notifyIcon1.ShowBalloonTip(1);
+           
 
             
         }
